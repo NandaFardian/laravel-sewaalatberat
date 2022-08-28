@@ -9,7 +9,7 @@
                             @auth
                             <h1 style="color: white">SELAMAT DATANG, {{Auth::user()->name}}</h1>
                             <h1 style="color: white">DI</h1>
-                            <h1 style="color: white">PENYEWAAN ALAT BERAT</h1>
+                            <h1 style="color: white">PENYEWAAN ALAT test</h1>
                             @else
                             <h1 style="color: white">SELAMAT DATANG</h1>
                             <h1 style="color: white">DI</h1>
