@@ -7,11 +7,11 @@
             {{-- @method('PUT') --}}
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Kode Sewa</label>
-                <input type="text" name="kode" value="{{'NF-' .date('d-m-y'.'-'. $kd)}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">                
+                <input type="text" readonly name="kode" value="{{'NF-' .date('d-m-y'.'-'. $kd)}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">                
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama lengkap</label>
-                <input type="text" name="nama" value="{{Auth::user()->name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" readonly name="nama" value="{{Auth::user()->name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
             </div>
             <div class="mb-3">
