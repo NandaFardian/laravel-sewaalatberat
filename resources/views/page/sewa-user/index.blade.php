@@ -60,7 +60,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Total Biaya</label>
-                <input type="text" readonly name="total" value="{{80000*25/100}}" class="form-control" id="exampleInputPassword1">
+                <input type="text" readonly name="total" value="{{2500000+80000*25/100}}" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="/sewa-user" class="btn btn-warning text-white">Batal</a>
