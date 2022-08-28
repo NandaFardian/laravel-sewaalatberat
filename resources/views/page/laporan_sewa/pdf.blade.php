@@ -30,10 +30,10 @@
                 <td>{{$item->no_hp}}</td>
                 <td>{{$item->alatberats->nm_alat}}</td>
                 <td>{{$item->tanggal_sewa}}</td>
-                <td>Rp. {{format_numberic ($item->alatberats->harga)}}</td>
-                <td>Rp. {{$item->biaya_ope}}</td>
+                <td>Rp. {{number_format ($item->alatberats->harga)}}</td>
+                <td>Rp. {{number_format ($item->biaya_ope)}}</td>
                 <td>Rp. {{$item->pajak}}</td>
-                <td>Rp. {{$item->total_biaya}}</td>
+                <td>Rp. {{number_format ($item->total_biaya)}}</td>
             </tr>
         @endforeach
     </table>
