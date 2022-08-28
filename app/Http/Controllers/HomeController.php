@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\models\Alatberat ;
-use App\models\Alatberat as Modelsalatberat;
-use App\models\Merk;
-use App\models\Operator;
-use App\models\Pelanggan;
-use App\models\Sewa;
-use App\models\User;
+// use App\models\Alatberat;
+use App\Models\Alatberat as ModelsAlatberat;
+use App\models\Merk as ModelsMerk;
+use App\models\Operator as ModelsOperator;
+use App\models\Sewa as ModelsSewa;
+use App\models\User as ModelsUser;
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
+     * 
+     * 
      */
 
 
@@ -27,15 +28,15 @@ class HomeController extends Controller
     public function index()
     {
         // $jumlah_alatberat = Alatberat::all()->count();
-        $jumlah_merk = Merk::all()->count();
-        $jumlah_alatberat = Modelsalatberat::all()->count();
-        $jumlah_operator = Operator::all()->count();
-        $jumlah_pelanggan = User::all()->count();
-        $jumlah_sewa = Sewa::all()->count();
-        $jumlah_belumbayar = Sewa::where('status',0)->count();
-        $jumlah_sudahbayar = Sewa::where('status',3)->count();
+        $jumlah_merk = ModelsMerk::all()->count();
+        $jumlah_alatberat = ModelsAlatberat::all()->count();
+        $jumlah_operator = ModelsOperator::all()->count();
+        $jumlah_pelanggan = ModelsUser::all()->count();
+        $jumlah_sewa = ModelsSewa::all()->count();
+        $jumlah_belumbayar = ModelsSewa::where('status',0)->count();
+        $jumlah_sudahbayar = ModelsSewa::where('status',3)->count();
         // dd($jumlah_belumbayar);
-        $notif = Sewa::where('kd_sewa')->count();
+        $notif = ModelsSewa::where('kd_sewa')->count();
         return view('home',compact('jumlah_merk','jumlah_sudahbayar','notif','jumlah_belumbayar','jumlah_alatberat','jumlah_operator','jumlah_pelanggan','jumlah_sewa'));
     }
     public function beranda()
@@ -48,7 +49,7 @@ class HomeController extends Controller
     }
     public function kategori()
     {
-        $alatberat=Modelsalatberat::all();
+        $alatberat=ModelsAlatberat::all();
         return view('page.kategori.index',compact('alatberat'));
     }
 
