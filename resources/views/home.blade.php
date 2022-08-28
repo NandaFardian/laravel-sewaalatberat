@@ -275,7 +275,7 @@
                         </div>
                         <div class="font-weight-bold ml-1 font-size-30 ml-3">{{$jumlah_belumbayar}}</div>
                     </div>
-                    <a href="/alatberat">Info Lebih Lanjut<i class="ti-arrow-right"></i></a>
+                    <a href="/pembayaran">Info Lebih Lanjut<i class="ti-arrow-right"></i></a>
                 </div>
             </div>
         
@@ -294,7 +294,7 @@
                         </div>
                         <div class="font-weight-bold ml-1 font-size-30 ml-3">{{$jumlah_sudahbayar}}</div>
                     </div>
-                    <a href="/alatberat">Info Lebih Lanjut<i class="ti-arrow-right"></i></a>
+                    <a href="/pembayaran">Info Lebih Lanjut<i class="ti-arrow-right"></i></a>
                 </div>
             </div>
         
