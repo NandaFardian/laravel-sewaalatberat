@@ -14,7 +14,4 @@ class Alatberat extends Model
     public function sewas(){
         return $this->belongTo(Sewa::class);
     }
-    // public function laporansewas(){
-    //     return $this->belongTo(LaporanSewa::class);
-    // }
 }
