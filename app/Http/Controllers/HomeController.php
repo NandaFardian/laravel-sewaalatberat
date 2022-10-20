@@ -51,8 +51,10 @@ class HomeController extends Controller
     }
     public function kategori()
     {
+        $jumlah_excavator = Sewa::where('alatberats_id',1)
+        ->count();
         $alatberat=ModelsAlatberat::all();
-        return view('page.kategori.index',compact('alatberat'));
+        return view('page.kategori.index',compact('alatberat','jumlah_excavator'));
     }
 
 }

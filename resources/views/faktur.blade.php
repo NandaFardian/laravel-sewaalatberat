@@ -10,93 +10,87 @@
     <table>
         
         <tr>
-            <td width="300px"><img class="logo mb-0" src="{{asset('assets/media/image/png.png')}}" height="150" alt="logo"></td>
+            <td width="300px"></td>
             <td width="300px"></td>
             <td width="300px"><div class="header-logo" align="center">
-                <h3 style="font-style:italic">Faktur Pembayaran</h3>
-                    
-                <div style="color: black;font-style:italic" class="mt-2">CV. YOYON</div>
-                <div>Jln. Meulaboh - Tapak Tuan Kec. Darul Makmur Kab. Nagan Raya</div>
+                <h3 style="font-style:italic">CV. Yoyon</h3>
             </div></td>
             <td width="300px"></td>
             <td width="300px"></td>
-            <td width="300px"></td>
+            
         </tr>
-        <tr align="center">
-            <td colspan="5">
-             ==================================================================================   
+        <tr>
+            <td>
+        Waktu : <label>15:09:09</label>   
             </td>
         </tr>
+        <tr>
+            <td colspan="4">Jum'at : 29/04/2022</td>
+            <td colspan="2">Kode Sewa : {{$sewa->kd_sewa}}</td>
+        </tr>
+        <tr>
+            <td>Status : <b style="color: green"> Lunas </b></td>
+        </tr>
+        <tr>
+        <td colspan="6">--------------------------------------------------------------------------------------------------------------------------------------</td>
+    </tr>
         <tr align="center">
+            
             <td colspan="6">
-                <table> 
-                    {{-- @foreach ($sewa as $item) --}}
+                <table style="text-align: center"> 
                     <tr>
-                        
-                        <td width="300px" align="right">Invoice Pembayaran 
-                        </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">FT2234567890</td>
-        
-                        
+                        <td width="300px">No</td>
+                        <td width="300px">Nama</td>
+                        <td width="300px">Tanggal Sewa</td>
+                        <td width="300px">Jenis Alat Berat</td>
+                        <td width="300px">Harga</td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Keterangan </td>
-                        <td with="20px" align="center">:</td>
-                        <td with="300px"><b style="color: green"> LUNAS </b></td>
+                        <td>1</td>
+                        <td>{{$sewa->nama_pen}}</td>
+                        <td>{{$sewa->tanggal_sewa}}</td>
+                        <td>{{$sewa->alatberats->nm_alat}}</td>
+                        <td>Rp. {{number_format ($sewa->alatberats->harga)}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">-------------------------------------------------------------------------------------------------------------------------------------</td>
+                    </tr>
+                    <tr>
                         <td></td>
-                    </tr>
-                    
-                    <tr>
-                        <td width="300px" align="right">Kode Sewa </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px" >{{$sewa->kd_sewa}}</td>
-                    </tr><tr>
-                        <td width="300px" align="right">Nama</td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->nama_pen}}</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            Biaya Operator
+                        </td>
+                        <td>Rp. {{number_format ($sewa->biaya_ope)}}</td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Alamat</td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->alamat}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            Biaya Tambahan
+                        </td>
+                        <td>Rp. {{number_format ($sewa->pajak)}}</td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Tanggal Sewa</td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->tanggal_sewa}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            Grand Total
+                        </td>
+                        <td>Rp. {{number_format ($sewa->total_biaya)}}</td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Tanggal Kembali </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->tanggal_kembali}}</td>
+                        <td colspan="6">-------------------------------------------------------------------------------------------------------------------------------------</td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Jenis Alat Berat </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->alatberats->nm_alat}}</td>
+                        <td colspan="6" align="center"><h3><b>Terima Kasih</b><br><b>Silahkan Berkunjung Kembali</b></h3></td>
                     </tr>
                     <tr>
-                        <td width="300px" align="right">Harga </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">Rp. {{number_format($sewa->alatberats->harga)}}</td>
+                        <td colspan="6" align="center"><h3></h3></td>
                     </tr>
-                    <tr>
-                        <td width="300px" align="right">Biaya Operator </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">Rp. {{number_format($sewa->biaya_ope)}}</td>
-                    </tr>
-                    <tr>
-                        <td width="300px" align="right">Pajak </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">{{$sewa->pajak}}</td>
-                    </tr>
-                    <tr>
-                        <td width="300px" align="right">Total Biaya </td>
-                        <td width="20px" align="center">:</td>
-                        <td width="300px">Rp. {{number_format($sewa->total_biaya)}}</td>
-                    </tr>
-                    {{-- @endforeach --}}
                 </table>
             </td>
         </tr>

@@ -55,12 +55,12 @@
                 <label for="exampleInputEmail1" class="form-label">Biaya Operator</label>
                 <input type="text" name="biaya_ope" readonly value=800000  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Pajak</label>
-                <input type="text" name="pajak" readonly value="25%" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputPassword1" class="form-label">Biaya Tambahan</label>
+                <input type="text" name="pajak" readonly value=1000000 class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Total Biaya</label>
-                <input type="text" readonly name="total" value="{{2500000+80000*25/100}}" class="form-control" id="exampleInputPassword1">
+                <input type="text" readonly name="total" value="{{2500000+80000+1000000}}" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="/sewa-user" class="btn btn-warning text-white">Batal</a>

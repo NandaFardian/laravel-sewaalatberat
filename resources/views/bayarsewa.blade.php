@@ -19,7 +19,7 @@
           <label for="exampleInputPassword1" class="form-label">Foto</label>
           <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
         </div>
-        <button type="submit" class="btn btn-primary">Tambah Data</button>
+        <button type="submit" class="btn btn-primary">Upload Bukti</button>
         <a href="/beranda" target="_blank" class="btn btn-warning text-white">Batal</a>    
       </form>
     </div>

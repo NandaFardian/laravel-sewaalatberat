@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Alatberat;
 use App\Models\Merk;
+use App\Models\Sewa;
 
 class AlatController extends Controller
 {
@@ -22,9 +23,11 @@ class AlatController extends Controller
         }else{
             $alatberat = Alatberat::all();
         }
+        $jumlah_excavator = Sewa::where('alatberats_id',1)
+        ->count();
 
         $nomor = 1;
-        return view('page.alatberat.index',compact('alatberat','nomor','request'));
+        return view('page.alatberat.index',compact('alatberat','nomor','request','jumlah_excavator'));
     }
 
     /**
@@ -56,10 +59,12 @@ class AlatController extends Controller
         $upload3 = $request->foto->move('berkas',$nama_file);
         $alatberat = new Alatberat;
             
+        $alatberat->no_mesin = $request->no_mesin;
         $alatberat->nm_alat = $request->nama;
         $alatberat->merks_id = $request->merk;
         $alatberat->tahun = $request->tahun;
         $alatberat->jumlah = $request->jumlah;
+        $alatberat->performa = $request->performa;
         $alatberat->harga = $request->harga;
         $alatberat->foto = $request->foto->getClientOriginalName();
         $alatberat->save();
@@ -109,9 +114,11 @@ class AlatController extends Controller
         $upload3 = $request->foto->move('berkas',$nama_file);
         $alatberat = Alatberat::find($id);
         
+        $alatberat->no_mesin = $request->no_mesin;
         $alatberat->nm_alat = $request->nama;
         $alatberat->merks_id = $request->merk;
         $alatberat->tahun = $request->tahun;
+        $alatberat->performa = $request->performa;
         $alatberat->jumlah = $request->jumlah;
         $alatberat->harga = $request->harga;
         $alatberat->foto = $request->foto->getClientOriginalName();

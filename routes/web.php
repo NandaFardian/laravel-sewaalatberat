@@ -9,6 +9,7 @@ use App\Http\Controllers\SewaController;
 use App\Http\Controllers\LaporanSewaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -34,6 +35,11 @@ use App\Http\Controllers\LoginController;
 Route::get('/a',[SewaController::class, 'tampilan']);
 
 //route alaberat
+Route::get('/excavator',[KategoriController::class, 'index']);
+Route::get('/crane',[KategoriController::class, 'crane']);
+Route::get('/bulldozer',[KategoriController::class, 'bull']);
+
+//route alaberat
 Route::get('/alatberat',[AlatController::class, 'index'])->middleware('verAdmin');
 Route::get('/alatberat/form',[AlatController::class, 'create'])->middleware('verAdmin');
 Route::post('/alatberat/store',[AlatController::class, 'store'])->middleware('verAdmin');
@@ -51,6 +57,7 @@ Route::delete('/merk/{id}',[MerkController::class, 'destroy'])->middleware('verA
 
 //route Operator
 Route::get('/ope',[OperController::class, 'index'])->middleware('verAdmin');
+Route::get('/ope/json', [OperController::class,'json']);
 Route::get('/ope/form',[OperController::class, 'create'])->middleware('verAdmin');
 Route::post('/ope/store',[OperController::class, 'store'])->middleware('verAdmin');
 Route::get('/ope/edit/{id}',[OperController::class, 'edit'])->middleware('verAdmin');
@@ -104,6 +111,7 @@ Route::get('/bayar',[PembayaranController::class, 'bayar']);
 // Route::put('/faktur/{$id}',[PembayaranController::class, 'print']);
 Route::get('/bayarsewa/{id}',[PembayaranController::class, 'bayaredit']);
 Route::get('/faktur/cetak/{ID}',[PembayaranController::class, 'faktur']);
+Route::get('/fakturdetail/{ID}',[PembayaranController::class, 'fakturDetail']);
 Route::put('/bayarsewa/{id}',[PembayaranController::class, 'update']);
 route::get('/status/{$id}',[PembayaranController::class, 'statusedit']);
     
@@ -116,3 +124,4 @@ Route::get('/riwayat',[PembayaranController::class, 'riwayat']);
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');    
+

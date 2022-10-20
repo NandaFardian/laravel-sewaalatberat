@@ -1,843 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin</title>
 
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" href="{{asset('assets/media/image/favicon.png')}}"/> --}}
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('vendors/bundle.css')}}" type="text/css">
-
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Daterangepicker -->
-    <link rel="stylesheet" href="{{asset('vendors/datepicker/daterangepicker.css')}}" type="text/css">
-
-    <!-- DataTable -->
-    <link rel="stylesheet" href="{{asset('vendors/dataTable/datatables.min.css')}}" type="text/css">
-
-<!-- App css -->
-    <link rel="stylesheet" href="{{asset('assets/css/app.min.css')}}" type="text/css">
-   
-    
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')}}"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script>
-    <![endif]-->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 </head>
-<body>
-<!-- Preloader -->
- {{-- <div class="preloader">
-    <div class="preloader-icon"></div>
-    <span>Loading...</span>
-</div>  --}}
-<!-- ./ Preloader -->
+<body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
 
-<!-- Sidebar group -->
-<div class="sidebar-group">
+  <!-- Preloader -->
+  {{-- <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div> --}}
 
-    <!-- BEGIN: Settings -->
-    <div class="sidebar" id="settings">
-        <div class="card">
-            <div class="card-body">
-                <h6 class="card-title d-flex justify-content-between">
-                    Settings
-                    <a class="btn-sidebar-close" href="#">
-                        <i class="ti-close"></i>
-                    </a>
-                </h6>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                            <label class="custom-control-label" for="customSwitch1">Allow notifications.</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch2">
-                            <label class="custom-control-label" for="customSwitch2">Hide user requests</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch3" checked>
-                            <label class="custom-control-label" for="customSwitch3">Speed up demands</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch4" checked>
-                            <label class="custom-control-label" for="customSwitch4">Hide menus</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch5">
-                            <label class="custom-control-label" for="customSwitch5">Remember next visits</label>
-                        </div>
-                    </li>
-                    <li class="list-group-item pl-0 pr-0">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch6">
-                            <label class="custom-control-label" for="customSwitch6">Enable report
-                                generation.</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="{{asset('dist/img/png.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><b> CV. YOYON </b></span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{asset('dist/img/foto.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-    </div>
-    <!-- END: Settings -->
-
-    <!-- BEGIN: Chat List -->
-    <div class="sidebar" id="chat-list">
-        <div class="card">
-            <div class="card-body">
-                <h6 class="card-title d-flex justify-content-between">
-                    Chats
-                    <a class="btn-sidebar-close" href="#">
-                        <i class="ti-close"></i>
-                    </a>
-                </h6>
-                <div class="list-group list-group-flush">
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-danger">
-                                <img src="{{asset('assets/media/image/user/women_avatar3.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow- 1">
-                            <h6 class="mb-1">Cass Queyeiro</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-image mr-1"></i> Photo
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Yesterday</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-warning">
-                                <img src="{{asset('assets/media/image/user/man_avatar4.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1">Evered Asquith</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-video-camera mr-1"></i> Video
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Last week</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item px-0 d-flex align-items-start">
-                        <div class="pr-3">
-                            <div class="avatar avatar-state-danger">
-                                <span class="avatar-title bg-success rounded-circle">F</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h6 class="mb-1">Francisco Ubsdale</h6>
-                            <span class="text-muted">Hello how are you?</span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">2:32 PM</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item px-0 d-flex align-items-start">
-                        <div class="pr-3">
-                            <div class="avatar avatar-state-success">
-                                <img src="{{asset('assets/media/image/user/women_avatar1.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </div>
-                        </div>
-                        <div>
-                            <h6 class="mb-1">Natale Janu</h6>
-                            <span class="text-muted">Hi!</span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="badge badge-primary badge-pill ml-auto mb-2">3</span>
-                            <span class="small text-muted">08:27 PM</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-warning">
-                                <img src="{{asset('assets/media/image/user/women_avatar2.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow- 1">
-                            <h6 class="mb-1">Orelie Rockhall</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-image mr-1"></i> Photo
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Yesterday</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-info">
-                                <img src="{{asset('assets/media/image/user/man_avatar1.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1">Barbette Bolf</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-video-camera mr-1"></i> Video
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Last week</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-secondary">
-                                <span class="avatar-title bg-warning rounded-circle">D</span>
-                            </span>
-                        </div>
-                        <div>
-                            <h6 class="mb-1">Dudley Laborde</h6>
-                            <span class="text-muted">Hello how are you?</span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">2:32 PM</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-success">
-                                <img src="{{asset('assets/media/image/user/man_avatar2.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div>
-                            <h6 class="mb-1">Barbaraanne Riby</h6>
-                            <span class="text-muted">Hi!</span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">08:27 PM</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-danger">
-                                <img src="{{asset('assets/media/image/user/women_avatar3.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow- 1">
-                            <h6 class="mb-1">Mariana Ondrousek</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-image mr-1"></i> Photo
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Yesterday</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-warning">
-                                <img src="{{asset('assets/media/image/user/man_avatar4.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1">Ruprecht Lait</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-video-camera mr-1"></i> Video
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Last week</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-info">
-                                <img src="{{asset('assets/media/image/user/man_avatar1.jpg')}}"
-                                     class="rounded-circle"
-                                     alt="image">
-                            </span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1">Cosme Hubbold</h6>
-                            <span class="text-muted">
-                                <i class="fa fa-video-camera mr-1"></i> Video
-                            </span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">Last week</span>
-                        </div>
-                    </a>
-                    <a href="chat.html" class="list-group-item d-flex px-0 align-items-start">
-                        <div class="pr-3">
-                            <span class="avatar avatar-state-secondary">
-                                <span class="avatar-title bg-secondary rounded-circle">M</span>
-                            </span>
-                        </div>
-                        <div>
-                            <h6 class="mb-1">Mallory Darch</h6>
-                            <span class="text-muted">Hello how are you?</span>
-                        </div>
-                        <div class="text-right ml-auto d-flex flex-column">
-                            <span class="small text-muted">2:32 PM</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+        <div class="info">
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
-    </div>
-    <!-- END: Chat List -->
+      </div>
 
-</div>
-<!-- ./ Sidebar group -->
-
-<!-- Layout wrapper -->
-<div class="layout-wrapper">
-
-    <!-- Header -->
-    <div class="header d-print-none">
-        <div class="header-container">
-            <div class="header-left">
-                <div class="navigation-toggler">
-                    <a href="#" data-action="navigation-toggler">
-                        <i data-feather="menu"></i>
-                    </a>
-                </div>
-
-                <div class="header-logo">
-                    <a href="#">
-                        <img class="logo mt-4" src="{{asset('assets/media/image/png.png')}}" height="150" alt="logo">
-                    </a>
-                    <div style="color: white;font-style:italic" align="center" class="mt-2">CV. YOYON</div>
-                </div>
-            </div>
-            <div class="header-body">
-                <marquee behavior="" direction="" style="font-size: 200%;font-style:italic;color:white">Sistem Penyewaan Alat Berat Berbasis Web di CV. YOYON Kec. Darul Makmur Kab. Nagan Raya</marquee>
-                <div class="header-body-left">
-                    {{-- <ul class="navbar-nav">
-                        <li class="nav-item mr-3">
-                            <div class="header-search-form">
-                                <form>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="btn">
-                                                <i data-feather="search"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn header-search-close-btn">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown d-none d-md-block">
-                            <a href="#" class="nav-link" title="Apps" data-toggle="dropdown">Apps</a>
-                            <div class="dropdown-menu dropdown-menu-big">
-                                <div class="border-bottom px-4 py-3 text-center d-flex justify-content-between">
-                                    <h5 class="mb-0">Apps</h5>
-                                </div>
-                                <div class="p-3">
-                                    <div class="row row-xs">
-                                        <div class="col-6">
-                                            <a href="chat.html">
-                                                <div class="border-radius-1 text-center mb-3">
-                                                    <figure class="avatar avatar-lg border-0">
-                                                <span class="avatar-title bg-primary text-white rounded-circle">
-                                                    <i class="width-30 height-30" data-feather="message-circle"></i>
-                                                </span>
-                                                    </figure>
-                                                    <div class="mt-2">Chat</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="mail.html">
-                                                <div class="border-radius-1 text-center mb-3">
-                                                    <figure class="avatar avatar-lg border-0">
-                                                <span class="avatar-title bg-secondary text-white rounded-circle">
-                                                    <i class="width-30 height-30" data-feather="mail"></i>
-                                                </span>
-                                                    </figure>
-                                                    <div class="mt-2">Mail</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="todo-list.html">
-                                                <div class="border-radius-1 text-center">
-                                                    <figure class="avatar avatar-lg border-0">
-                                                <span class="avatar-title bg-info text-white rounded-circle">
-                                                    <i class="width-30 height-30" data-feather="check-circle"></i>
-                                                </span>
-                                                    </figure>
-                                                    <div class="mt-2">Todo List</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="file-manager.html">
-                                                <div class="border-radius-1 text-center">
-                                                    <figure class="avatar avatar-lg border-0">
-                                                <span class="avatar-title bg-warning text-white rounded-circle">
-                                                    <i class="width-30 height-30" data-feather="file"></i>
-                                                </span>
-                                                    </figure>
-                                                    <div class="mt-2">File Manager</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown d-none d-md-block">
-                            <a href="#" class="nav-link" title="Actions" data-toggle="dropdown">Create</a>
-                            <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Add Products</a>
-                                <a href="#" class="dropdown-item">Add Category</a>
-                                <a href="#" class="dropdown-item">Add Report</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">Reports</a>
-                                <a href="#" class="dropdown-item">Customers</a>
-                            </div>
-                        </li>
-                    </ul> --}}
-                </div>
-                <div class="header-body-right">
-                    <ul class="navbar-nav">
-
-                        <li class="nav-item dropdown d-none d-md-block">
-                            <a href="#" class="nav-link" title="Fullscreen" data-toggle="fullscreen">
-                                <i class="maximize" data-feather="maximize"></i>
-                                <i class="minimize" data-feather="minimize"></i>
-                            </a>
-                        </li>
-
-                        {{-- <li class="nav-item dropdown">
-                            <a href="#" class="nav-link nav-link-notify" title="Chats" data-sidebar-target="#chat-list">
-                                <i data-feather="message-circle"></i>
-                            </a>
-                        </li> --}}
-
-                        <li class="nav-item dropdown">
-                            <a href="/sewa" class="nav-link nav-link-notify" title="Notifications">
-                                <i data-feather="bell"></i>
-                            </a>
-                            {{-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                <div
-                                    class="border-bottom px-4 py-3 text-center d-flex justify-content-between align-items-center">
-                                    <h5 class="mb-0">Notifications</h5>
-                                    <small class="opacity-7">2   unread notifications</small>
-                                </div>
-                                <div class="dropdown-scroll">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="px-4 py-2 text-center small text-muted bg-light">Today</li>
-                                        <li class="px-4 py-3 list-group-item">
-                                            <a href="#" class="d-flex align-items-center hide-show-toggler">
-                                                <div class="flex-shrink-0">
-                                                    <figure class="avatar mr-3">
-                                                        <span
-                                                            class="avatar-title bg-info-bright text-info rounded-circle">
-                                                            <i class="ti-lock"></i>
-                                                        </span>
-                                                    </figure>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                        2 steps verification
-                                                        <i title="Mark as read" data-toggle="tooltip"
-                                                           class="hide-show-toggler-item fa fa-circle-o font-size-11"></i>
-                                                    </p>
-                                                    <span class="text-muted small">20 min ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="px-4 py-3 list-group-item">
-                                            <a href="#" class="d-flex align-items-center hide-show-toggler">
-                                                <div class="flex-shrink-0">
-                                                    <figure class="avatar mr-3">
-                                                        <span
-                                                            class="avatar-title bg-warning-bright text-warning rounded-circle">
-                                                            <i class="ti-server"></i>
-                                                        </span>
-                                                    </figure>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                        Storage is running low!
-                                                        <i title="Mark as read" data-toggle="tooltip"
-                                                           class="hide-show-toggler-item fa fa-circle-o font-size-11"></i>
-                                                    </p>
-                                                    <span class="text-muted small">45 sec ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="px-4 py-2 text-center small text-muted bg-light">Old Notifications</li>
-                                        <li class="px-4 py-3 list-group-item">
-                                            <a href="#" class="d-flex align-items-center hide-show-toggler">
-                                                <div class="flex-shrink-0">
-                                                    <figure class="avatar mr-3">
-                                                        <span class="avatar-title bg-secondary-bright text-secondary rounded-circle">
-                                                            <i class="ti-file"></i>
-                                                        </span>
-                                                    </figure>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                        1 person sent a file
-                                                        <i title="Mark as unread" data-toggle="tooltip"
-                                                           class="hide-show-toggler-item fa fa-check font-size-11"></i>
-                                                    </p>
-                                                    <span class="text-muted small">Yesterday</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="px-4 py-3 list-group-item">
-                                            <a href="#" class="d-flex align-items-center hide-show-toggler">
-                                                <div class="flex-shrink-0">
-                                                    <figure class="avatar mr-3">
-                                                        <span class="avatar-title bg-success-bright text-success rounded-circle">
-                                                            <i class="ti-download"></i>
-                                                        </span>
-                                                    </figure>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                        Reports ready to download
-                                                        <i title="Mark as unread" data-toggle="tooltip"
-                                                           class="hide-show-toggler-item fa fa-check font-size-11"></i>
-                                                    </p>
-                                                    <span class="text-muted small">Yesterday</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="px-4 py-3 list-group-item">
-                                            <a href="#" class="d-flex align-items-center hide-show-toggler">
-                                                <div class="flex-shrink-0">
-                                                    <figure class="avatar mr-3">
-                                                        <span class="avatar-title bg-primary-bright text-primary rounded-circle">
-                                                            <i class="ti-arrow-top-right"></i>
-                                                        </span>
-                                                    </figure>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                        The invitation has been sent.
-                                                        <i title="Mark as unread" data-toggle="tooltip"
-                                                           class="hide-show-toggler-item fa fa-check font-size-11"></i>
-                                                    </p>
-                                                    <span class="text-muted small">Last Week</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="px-4 py-3 text-right border-top">
-                                    <ul class="list-inline small">
-                                        <li class="list-inline-item mb-0">
-                                            <a href="#">Mark All Read</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
-                        </li>
-
-                        {{-- <li class="nav-item">
-                            <a href="#" title="Cart" class="nav-link" data-toggle="dropdown">
-                                <i data-feather="shopping-bag"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                <div
-                                    class="border-bottom px-4 py-3 text-center d-flex justify-content-between align-items-center">
-                                    <h5 class="mb-0">Cart</h5>
-                                    <small class="opacity-7">4 products</small>
-                                </div>
-                                <div class="dropdown-scroll">
-                                    <div class="list-group list-group-flush">
-                                        <a href="#" class="px-4 py-3 list-group-item d-flex">
-                                            <div class="flex-shrink-0">
-                                                <figure class="avatar mr-3">
-                                                    <img class="rounded" src="{{asset('assets/media/image/products/product6.png')}}"
-                                                         alt="Canon 4000D 18-55 MM">
-                                                </figure>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                    Canon 4000D 18-55 MM
-                                                    <i title="Close" data-toggle="tooltip"
-                                                       class="hide-show-toggler-item small ti-close"></i>
-                                                </p>
-                                                <span class="text-muted small">X $1,200</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="px-4 py-3 list-group-item d-flex">
-                                            <div class="flex-shrink-0">
-                                                <figure class="avatar mr-3">
-                                                    <img class="rounded" src="{{asset('assets/media/image/products/product3.png')}}"
-                                                         alt="pineapple">
-                                                </figure>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                    Snopy SN-BT96 Pretty
-                                                    <i title="Close" data-toggle="tooltip"
-                                                       class="hide-show-toggler-item small ti-close"></i>
-                                                </p>
-                                                <span class="text-muted small">X $250</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="px-4 py-3 list-group-item d-flex">
-                                            <div class="flex-shrink-0">
-                                                <figure class="avatar mr-3">
-                                                    <img src="{{asset('assets/media/image/products/product7.png')}}"
-                                                         class="rounded" alt="pineapple">
-                                                </figure>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                    Lenovo Tab E10 TB-X104F 32GB
-                                                    <i title="Close" data-toggle="tooltip"
-                                                       class="hide-show-toggler-item small ti-close"></i>
-                                                </p>
-                                                <span class="text-muted small">X $100</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="px-4 py-3 list-group-item d-flex">
-                                            <div class="flex-shrink-0">
-                                                <figure class="avatar mr-3">
-                                                    <img class="rounded" src="{{asset('assets/media/image/products/product6.png')}}"
-                                                         alt="Canon 4000D 18-55 MM">
-                                                </figure>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                    Canon 4000D 18-55 MM
-                                                    <i title="Close" data-toggle="tooltip"
-                                                       class="hide-show-toggler-item small ti-close"></i>
-                                                </p>
-                                                <span class="text-muted small">X $1,200</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-3 border-top text-right small">
-                                    <p class="d-flex justify-content-between align-items-center mb-1">
-                                        <span>Sub Total</span>
-                                        <span>$1,650</span>
-                                    </p>
-                                    <p class="d-flex justify-content-between align-items-center mb-1">
-                                        <span>Taxes</span>
-                                        <span>$15</span>
-                                    </p>
-                                    <p class="d-flex justify-content-between align-items-center mb-1 font-weight-bold">
-                                        <span>Total</span>
-                                        <span>$1,665</span>
-                                    </p>
-                                    <button class="btn btn-primary btn-block mt-2">
-                                        Order and Payment <i class="ti-arrow-right ml-2"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </li> --}}
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" title="User menu" data-toggle="dropdown">
-                                <figure class="avatar avatar-sm">
-                                    <img src="{{asset('assets/media/image/user/default.png')}}"
-                                         class="rounded-circle"
-                                         alt="avatar">
-                                </figure>
-                                @guest
-                                    <span class="ml-2 d-sm-inline d-none">0</span>
-                                @else
-                                    <span class="ml-2 d-sm-inline d-none">{{Auth::user()->name}}</span>
-                                @endguest
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                <div class="text-center py-4">
-                                    <figure class="avatar avatar-lg mb-3 border-0">
-                                        <img src="{{asset('assets/media/image/user/default.png')}}"
-                                             class="rounded-circle" alt="image">
-                                    </figure>
-                                    @guest
-                                    <h5 class="text-center">0</h5>
-                                    @else
-                                    <h5 class="text-center">{{Auth::user()->name}}</h5>
-                                    @endguest
-
-                                </div>
-                                <div class="list-group">
-                                    
-                                    <a class="list-group-item text-danger" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item header-toggler">
-                    <a href="#" class="nav-link">
-                        <i data-feather="arrow-down"></i>
-                    </a>
-                </li>
-            </ul>
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
-    </div>
-    <!-- ./ Header -->
+      </div>
 
-    <!-- Content wrapper -->
-    <div class="content-wrapper">
-        <!-- begin::navigation -->
-        <div class="navigation">
-            <div class="navigation-header">
-                <span>Navigation</span>
-                <a href="#">
-                    <i class="ti-close"></i>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard</p>
                 </a>
-            </div>
-            <div class="navigation-menu-body">
-                <ul>
-                    <li>
-                        <a  class="active"  href=/admin>
-                    <span class="nav-link-icon">
-                        <i data-feather="pie-chart"></i>
-                    </span>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                    <span class="nav-link-icon">
-                    <i data-feather="layers"></i>
-                    </span>
-                            <span>Data Master</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a  href="/pelanggan">Data Pelangan</a>
-                            </li>
-                            <li>
-                                <a  href="/alatberat">Data Alat Berat</a>
-                            </li>
-                            <li>
-                                <a  href="/merk">Data Merk</a>
-                            </li>
-                            <li>
-                                <a  href="/ope">Data Operator</a>
-                            </li>
-                            <li>
-                                <a  href="/sewa">Data Sewa</a>
-                            </li>
-                            <li>
-                                <a  href="/pembayaran">Data Bayar</a>
-                            </li>
-                        </ul>
-                    </li>
-                    {{-- <li>
-                        <a href="#">
-                    <span class="nav-link-icon">
-                        <i data-feather="edit-3"></i>
-                    </span>
-                            <span>Forms</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a  href="form_tambah_pel.php">Form Tambah Pelanggan</a>
-                            </li>
-                            <li>
-                                <a  href="form_tambah.php">Form Tambah Alat Berat</a>
-                            </li>
-                            <li>
-                                <a  href="formmerk_tambah.php">Form Tambah Merk</a>
-                            </li>
-                            <li>
-                                <a  href="form_tambah_ope.php">Form Tambah Operator</a>
-                            </li>
-                        </ul>
-                    </li> --}}
-                    <li>
-                        <a href="#">
-                    <span class="nav-link-icon">
-                        <i data-feather="edit-3"></i>
-                    </span>
-                            <span>Laporan</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a  href="/laporan_sewa">Laporan Sewa</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- end::navigation -->
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">Data Master</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tabel
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/pelanggan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Pelanggan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/alatberat" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Alat Berat</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/merk" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Merk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/ope" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Operator</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/sewa" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Sewa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/pembayaran" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Bayar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">Laporan</li>
+          <li class="nav-item">
+            <a href="/laporan" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Laporan
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Logout</li>
+          <li class="nav-item">
+              <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><i class="nav-icon far fa-circle text-danger"></i>
+              {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+              </form>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
 
-        <!-- Content body -->
-        <div class="content-body">
-@yield('content')
-         
-        </div>
-<!-- ./ Content body -->
+  <!-- Content Wrapper. Contains page content -->
+  @yield('content')
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright Nanda Fardian @2020</strong>
+  </footer>
 </div>
-<!-- ./ Content wrapper -->
-</div>
-<!-- ./ Layout wrapper -->
+<!-- ./wrapper -->
 
-<!-- Main scripts -->
-<script src="{{asset('vendors/bundle.js')}}"></script>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.js')}}"></script>
 
-<!-- Apex chart -->
-<script src="{{asset('vendors/charts/apex/apexcharts.min.js')}}"></script>
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="{{asset('plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+<script src="{{asset('plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
+<script src="{{asset('plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
 
-<!-- Daterangepicker -->
-<script src="{{asset('vendors/datepicker/daterangepicker.js')}}"></script>
-
-<!-- DataTable -->
-<script src="{{asset('vendors/dataTable/datatables.min.js')}}"></script>
-
-<!-- Dashboard scripts -->
-<script src="{{asset('assets/js/examples/pages/dashboard.js')}}"></script>
-<!-- App scripts -->
-<script src="{{asset('assets/js/app.min.js')}}"></script>
-@yield('Script')
-
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('dist/js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
 </body>
 </html>

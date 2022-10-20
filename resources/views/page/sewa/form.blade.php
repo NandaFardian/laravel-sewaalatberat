@@ -74,7 +74,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Pajak</label>
-              <input type="text" name="pajak" readonly value=25% class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="pajak" readonly value=1000000 class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Total Biaya</label>

@@ -29,7 +29,7 @@
     <h5>Buat Akun</h5>
 
     <!-- form -->
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label class="float-left">Nama Lengkap</label>
@@ -85,6 +85,11 @@
             <label class="float-left">Konfirmasi Password</label>
             <input type="password" name="password_confirmation" class="form-control form-control-user"
                 id="exampleRepeatPassword" placeholder="Konfirmasi Password">
+        </div>
+        <div class="form-group">
+            <label class="float-left">Foto KTP</label>
+            <input type="file" name="foto" class="form-control form-control-user"
+                id="exampleRepeatPassword">
         </div>
         <button type="submit" class="btn btn-primary btn-block">
             {{ __('Register') }}

@@ -126,6 +126,11 @@ class PembayaranController extends Controller
         // dd($sewa);
         return view('faktur',compact('sewa'));
     }
+    public function fakturDetail($id){
+        $sewa = Sewa::find($id);
+        // dd($sewa);
+        return view('fakturdetail',compact('sewa'));
+    }
 
     // public function fakturid($id, Request $request){
     //     $sewa = Sewa::where('id',$id)->first();

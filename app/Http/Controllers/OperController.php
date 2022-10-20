@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Operator;
+use Yajra\DataTables\DataTables;
 class OperController extends Controller
 {
     /**
@@ -19,9 +20,9 @@ class OperController extends Controller
             $ope = Operator::all();
         }
         $nomor = 1;
-        return view('page.ope.index',compact('ope','nomor','request'));
+        return view('page.ope.index',compact('ope','nomor'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -40,11 +41,20 @@ class OperController extends Controller
      */
     public function store(Request $request)
     {
+        $validasi = $request->validate(
+            [
+                'foto' => 'required|file|mimes:png,jpg,jpeg',
+            ]
+            );
+        $nama_file = $request->foto->getClientOriginalName();
+ 
+        $upload3 = $request->foto->move('berkas',$nama_file);
         $ope = new Operator;
         
         $ope->nama = $request->nama;
         $ope->alamat = $request->alamat;
         $ope->no_hp = $request->no_hp;
+        $ope->foto = $request->foto->getClientOriginalName();
         $ope->save();
         return redirect('/ope');
     }
@@ -81,11 +91,21 @@ class OperController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validasi = $request->validate(
+            [
+                'foto' => 'required|file|mimes:png,jpg,jpeg',
+            ]
+            );
+        $nama_file = $request->foto->getClientOriginalName();
+ 
+        $upload3 = $request->foto->move('berkas',$nama_file);
+
         $ope = Operator::find($id);
 
         $ope->nama = $request->nama;
         $ope->alamat = $request->alamat;
         $ope->no_hp = $request->no_hp;
+        $ope->foto = $request->foto->getClientOriginalName();
         $ope->save();
         return redirect('/ope');
     }
